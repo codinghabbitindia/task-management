@@ -1,11 +1,14 @@
 <div class="filters">
-    <mat-form-field appearance="outline" style="flex: 1 1 200px;">
+    <mat-form-field appearance="outline" class="search">
         <mat-label>Search</mat-label>
         <input matInput placeholder="Search by Task name or description" [(ngModel)]="searchText"
             (ngModelChange)="applyFilters()" />
+        <button mat-icon-button matSuffix tabindex="-1" disabled>
+            <mat-icon>search</mat-icon>
+        </button>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 180px;">
+    <mat-form-field appearance="outline" class="filter">
         <mat-label>Priority</mat-label>
         <mat-select [(ngModel)]="selectedPriority" (selectionChange)="applyFilters()">
             <mat-option value="">All</mat-option>
@@ -13,7 +16,7 @@
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 180px;">
+    <mat-form-field appearance="outline" class="filter">
         <mat-label>Status</mat-label>
         <mat-select [(ngModel)]="selectedStatus" (selectionChange)="applyFilters()">
             <mat-option value="">All</mat-option>
@@ -21,7 +24,7 @@
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" style="width: 200px;">
+    <mat-form-field appearance="outline" class="filter">
         <mat-label>Assigned User</mat-label>
         <mat-select [(ngModel)]="selectedUser" (selectionChange)="applyFilters()">
             <mat-option value="">All</mat-option>
@@ -29,11 +32,6 @@
         </mat-select>
     </mat-form-field>
 </div>
-
-<!-- <app-table [dataSource]="filteredTasks" [displayedColumns]="displayedColumns" [columnHeaders]="columnHeaders"
-    [showActions]="true" [actions]="actionConfig" (onEdit)="editTask($event)" (onView)="viewTask($event)"
-    (onDelete)="deleteTask($event)">
-</app-table> -->
 
 <div class="task-board">
     <div class="task-status-column">

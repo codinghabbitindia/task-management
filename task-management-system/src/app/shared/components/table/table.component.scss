@@ -3,26 +3,70 @@ table {
     border-collapse: collapse;
     overflow-x: auto;
     display: block;
+    background: #f7fbff;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.06);
 }
 
 th,
 td {
-    padding: 8px 12px;
+    padding: 12px 16px;
     text-align: left;
     word-break: break-word;
     white-space: nowrap;
-}
-
-tr.cdk-drag {
-    cursor: grab;
-}
-
-tr.cdk-drag:active {
-    cursor: grabbing;
+    font-size: 15px;
 }
 
 th.mat-mdc-header-cell {
     background: #96c4f1;
     font-size: 16px;
     border-bottom: 2px solid #1565c0;
+    color: #17406d;
+    letter-spacing: 0.5px;
+}
+
+tr.cdk-drag {
+    cursor: grab;
+    transition: background 0.2s;
+}
+
+tr.cdk-drag:active {
+    cursor: grabbing;
+    background: #e3f2fd;
+}
+
+tr.mat-row:nth-child(even) td {
+    background: #f1f8ff;
+}
+
+tr.mat-row:hover td {
+    background: #e3f2fd;
+    transition: background 0.2s;
+}
+
+.empty-watermark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #bdbdbd;
+    padding: 48px 0 32px 0;
+    font-size: 1.2rem;
+    background: #f7fbff;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.04);
+}
+
+.empty-text {
+    margin-top: 14px;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+button[mat-icon-button] {
+    margin-right: 4px;
+    transition: background 0.2s;
+}
+
+button[mat-icon-button]:hover {
+    background: #e3f2fd;
 }

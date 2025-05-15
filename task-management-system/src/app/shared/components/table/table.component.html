@@ -1,34 +1,37 @@
-<table mat-table [dataSource]="dataSource">
+<div *ngIf="!dataSource || dataSource.length === 0; else tableContent" class="empty-watermark">
+  <div class="empty-text">No tasks to display</div>
+</div>
 
-    <!-- Dynamic Columns -->
-    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-        <th mat-header-cell *matHeaderCellDef> {{ columnHeaders[column] || column }} </th>
-        <td mat-cell *matCellDef="let element">
-            <ng-container *ngIf="column === 'dueDate'; else defaultCell">
-                {{ element[column] | date:'yyyy-MM-dd' }}
-            </ng-container>
-            <ng-template #defaultCell>
-                {{ element[column] }}
-            </ng-template>
-        </td>
-    </ng-container>
+<ng-template #tableContent>
+  <table mat-table [dataSource]="dataSource">
+      <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+          <th mat-header-cell *matHeaderCellDef> {{ columnHeaders[column] || column }} </th>
+          <td mat-cell *matCellDef="let element">
+              <ng-container *ngIf="column === 'dueDate'; else defaultCell">
+                  {{ element[column] | date:'yyyy-MM-dd' }}
+              </ng-container>
+              <ng-template #defaultCell>
+                  {{ element[column] }}
+              </ng-template>
+          </td>
+      </ng-container>
 
-    <!-- Actions Column -->
-    <ng-container *ngIf="showActions" matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let element">
-            <button *ngIf="actions.isView" mat-icon-button color="primary" (click)="handleView(element)">
-                <mat-icon>visibility</mat-icon>
-            </button>
-            <button *ngIf="actions.isEdit" mat-icon-button color="accent" (click)="handleEdit(element)">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button *ngIf="actions.isDelete" mat-icon-button color="warn" (click)="handleDelete(element)">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </td>
-    </ng-container>
+      <ng-container *ngIf="showActions" matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+              <button *ngIf="actions.isView" mat-icon-button color="primary" (click)="handleView(element)">
+                  <mat-icon>visibility</mat-icon>
+              </button>
+              <button *ngIf="actions.isEdit" mat-icon-button color="accent" (click)="handleEdit(element)">
+                  <mat-icon>edit</mat-icon>
+              </button>
+              <button *ngIf="actions.isDelete" mat-icon-button color="warn" (click)="handleDelete(element)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: tableColumns" cdkDrag [cdkDragData]="row"></tr>
-</table>
+      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableColumns" cdkDrag [cdkDragData]="row"></tr>
+  </table>
+</ng-template>
