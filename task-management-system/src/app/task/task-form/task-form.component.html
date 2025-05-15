@@ -1,4 +1,4 @@
-<h2 class="heading">{{taskId ? 'Edit' : 'Add'}} New Task</h2>
+<h2 class="heading">{{taskId ? 'Edit' : 'Add New'}} Task</h2>
 <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
     <mat-form-field appearance="outline" class="full-width">
         <mat-label>Task Name</mat-label>
@@ -17,7 +17,7 @@
     <mat-form-field appearance="outline" class="full-width">
         <mat-label>Priority</mat-label>
         <mat-select formControlName="priority">
-            <mat-option *ngFor="let p of priorities" [value]="p">{{p}}</mat-option>
+            <mat-option *ngFor="let priority of priorities" [value]="priority.value">{{priority.label}}</mat-option>
         </mat-select>
         <mat-error *ngIf="f['priority'].hasError('required')">Priority is required</mat-error>
     </mat-form-field>
@@ -25,7 +25,7 @@
     <mat-form-field appearance="outline" class="full-width">
         <mat-label>Status</mat-label>
         <mat-select formControlName="status">
-            <mat-option *ngFor="let s of statuses" [value]="s">{{s}}</mat-option>
+            <mat-option *ngFor="let status of statuses" [value]="status.value">{{status.label}}</mat-option>
         </mat-select>
         <mat-error *ngIf="f['status'].hasError('required')">Status is required</mat-error>
     </mat-form-field>

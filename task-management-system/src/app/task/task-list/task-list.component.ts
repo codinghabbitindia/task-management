@@ -8,8 +8,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { Task } from 'src/app/shared/models/task';
+import { UserService } from 'src/app/shared/services/user.service';
 import { TASK_PRIORITIES, TASK_STATUS } from 'src/app/shared/utils/constants';
-import { addTaskSuccess, deleteTask, deleteTaskSuccess, loadTasks, updateTask } from 'src/app/store/actions/task.actions';
+import { deleteTask, deleteTaskSuccess, loadTasks, updateTask } from 'src/app/store/actions/task.actions';
 import { selectAllTasks } from 'src/app/store/selectors/task.selectors';
 
 @Component({
@@ -32,7 +33,7 @@ export class TaskListComponent implements OnInit {
     assignedTo: 'Assigned To',
     dueDate: 'Due Date'
   };
-  users = ['John Doe', 'Jane Smith', 'Alice Johnson', 'Bob Brown', 'Charlie Green'];
+  users: string[] = [];
   searchText: string = '';
   selectedPriority: string = '';
   selectedStatus: string = '';
@@ -48,9 +49,13 @@ export class TaskListComponent implements OnInit {
     private dialog: MatDialog,
     private actions: Actions,
     private snackBar: MatSnackBar,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+    });
     this.store.dispatch(loadTasks());
     this.tasks.subscribe(tasks => {
       this.filterAndGroupTasks(tasks);

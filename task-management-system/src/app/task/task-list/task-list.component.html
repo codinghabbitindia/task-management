@@ -12,7 +12,7 @@
         <mat-label>Priority</mat-label>
         <mat-select [(ngModel)]="selectedPriority" (selectionChange)="applyFilters()">
             <mat-option value="">All</mat-option>
-            <mat-option *ngFor="let p of priorities" [value]="p">{{p.label}}</mat-option>
+            <mat-option *ngFor="let priority of priorities" [value]="priority">{{priority.label}}</mat-option>
         </mat-select>
     </mat-form-field>
 
@@ -20,7 +20,7 @@
         <mat-label>Status</mat-label>
         <mat-select [(ngModel)]="selectedStatus" (selectionChange)="applyFilters()">
             <mat-option value="">All</mat-option>
-            <mat-option *ngFor="let s of statuses" [value]="s">{{s.label}}</mat-option>
+            <mat-option *ngFor="let status of statuses" [value]="status">{{status.label}}</mat-option>
         </mat-select>
     </mat-form-field>
 
@@ -28,7 +28,7 @@
         <mat-label>Assigned User</mat-label>
         <mat-select [(ngModel)]="selectedUser" (selectionChange)="applyFilters()">
             <mat-option value="">All</mat-option>
-            <mat-option *ngFor="let u of users" [value]="u">{{u}}</mat-option>
+            <mat-option *ngFor="let user of users" [value]="user">{{user}}</mat-option>
         </mat-select>
     </mat-form-field>
 </div>

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Task } from '../shared/models/task';
-import tasksData from '../shared/data/tasks.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private tasks: Task[] = [...tasksData];
+  private tasks: Task[] = [];
 
   getTasks(): Observable<Task[]> {
     return of([...this.tasks]);
