@@ -1,5 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Task } from 'src/app/shared/models/task';
@@ -13,7 +14,7 @@ import { selectAllTasks } from 'src/app/store/selectors/task.selectors';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  
+
   priorities = TASK_PRIORITIES;
   statuses = TASK_STATUS;
   tasks: Observable<Task[]> = this.store.select(selectAllTasks);
@@ -37,7 +38,7 @@ export class TaskListComponent implements OnInit {
   completedTasks: Task[] = [];
   filteredTasks: Task[] = [];
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private router: Router) { }
 
   ngOnInit() {
     this.store.dispatch(loadTasks());
@@ -85,8 +86,7 @@ export class TaskListComponent implements OnInit {
   }
 
   viewTask(task: Task) {
-    // Implement view logic
-    console.log('View Task:', task);
+    this.router.navigate(['/tasks', task.id]);
   }
 
   deleteTask(task: Task) {

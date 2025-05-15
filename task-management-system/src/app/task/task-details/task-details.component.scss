@@ -1,0 +1,30 @@
+.task-details-card {
+    max-width: 700px;
+    margin: 32px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+mat-card-title {
+    font-size: 1.5rem;
+}
+
+mat-card-subtitle {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.in\ progress {
+    color: #1976d2;
+}
+
+.completed {
+    color: #388e3c;
+}
+
+.pending {
+    color: #fbc02d;
+}
