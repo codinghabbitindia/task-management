@@ -37,20 +37,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 📝 Usage
 
-Add Task: Click the "Add Task" button, fill out the form, and submit.
-Edit Task: Click the edit icon on a task row.
-Delete Task: Click the delete icon and confirm in the modal.
-View Details: Click the view icon to see task details.
-Filter/Search: Use the search box and dropdowns at the top to filter tasks.
-Drag & Drop: Move tasks between columns to change their status.
+**Add Task:** Click the "Add Task" button, fill out the form, and submit.
+**Edit Task:** Click the edit icon on a task row.
+**Delete Task:** Click the delete icon and confirm in the modal.
+**View Details:** Click the view icon to see task details.
+**Filter/Search:** Use the search box and dropdowns at the top to filter tasks.
+**Drag & Drop:** Move tasks between columns to change their status.
 
 ⚠️ Assumptions & Limitations
 
-Data Persistence: Tasks are stored in-memory (using a local JSON file as initial data). Changes are not persisted after a browser refresh.
-Authentication: No user authentication or authorization is implemented.
-Users List: The list of users for assignment is hardcoded.
-No Backend: This project is frontend-only. To persist data, integration with a backend API is required.
-Testing: Basic Angular/Karma setup is present, but test coverage may be minimal.
+**Data Persistence:** Tasks are stored in-memory (using a local JSON file as initial data). Changes are not persisted after a browser refresh.
+**Authentication:** No user authentication or authorization is implemented.
+**Users List:** The list of users for assignment is hardcoded.
+**No Backend:** This project is frontend-only. To persist data, integration with a backend API is required.
+**Testing:** Basic Angular/Karma setup is present, but test coverage may be minimal.
 
 ## Development server
 
