@@ -1,0 +1,17 @@
+// Add to: c:\Users\harsh\Desktop\projectsCH\task-management\task-management-system\src\app\task\task-form\task-form.component.scss
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 32px auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}

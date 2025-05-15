@@ -10,10 +10,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { taskReducer } from './store/reducers/task.reducer';
 import { TaskEffects } from './store/effects/task.effects';
+import { DeleteComponent } from './shared/components/delete/delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

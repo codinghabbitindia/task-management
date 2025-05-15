@@ -81,8 +81,7 @@ export class TaskListComponent implements OnInit {
   }
 
   editTask(task: Task) {
-    // Implement edit logic
-    console.log('Edit Task:', task);
+    this.router.navigate(['/tasks', task.id, 'edit']);
   }
 
   viewTask(task: Task) {

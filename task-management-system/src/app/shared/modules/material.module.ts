@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   exports: [
@@ -24,6 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     MatNativeDateModule,
     DragDropModule,
     MatCardModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }

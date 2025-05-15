@@ -1,19 +1,19 @@
-<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill" class="full-width">
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Task Name</mat-label>
     <input matInput formControlName="taskName" maxlength="50" />
     <mat-error *ngIf="f['taskName'].hasError('required')">Task Name is required</mat-error>
     <mat-error *ngIf="f['taskName'].hasError('maxlength')">Max 50 characters allowed</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Description</mat-label>
     <textarea matInput formControlName="description" maxlength="200"></textarea>
     <mat-hint align="end">{{f['description'].value?.length || 0}} / 200</mat-hint>
     <mat-error *ngIf="f['description'].hasError('maxlength')">Max 200 characters allowed</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Priority</mat-label>
     <mat-select formControlName="priority">
       <mat-option *ngFor="let p of priorities" [value]="p">{{p}}</mat-option>
@@ -21,7 +21,7 @@
     <mat-error *ngIf="f['priority'].hasError('required')">Priority is required</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Status</mat-label>
     <mat-select formControlName="status">
       <mat-option *ngFor="let s of statuses" [value]="s">{{s}}</mat-option>
@@ -29,7 +29,7 @@
     <mat-error *ngIf="f['status'].hasError('required')">Status is required</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Assigned To</mat-label>
     <mat-select formControlName="assignedTo">
       <mat-option *ngFor="let user of users" [value]="user">{{user}}</mat-option>
@@ -37,7 +37,7 @@
     <mat-error *ngIf="f['assignedTo'].hasError('required')">Assigned To is required</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="full-width">
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Due Date</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="dueDate" />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -46,5 +46,7 @@
     <mat-error *ngIf="f['dueDate'].hasError('pastDate')">Due Date cannot be in the past</mat-error>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <div class="form-actions">
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </div>
 </form>

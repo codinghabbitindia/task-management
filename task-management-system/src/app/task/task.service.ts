@@ -7,10 +7,10 @@ import tasksData from '../shared/data/tasks.json';
   providedIn: 'root'
 })
 export class TaskService {
-  private tasks: Task[] = tasksData;
+  private tasks: Task[] = [...tasksData];
 
   getTasks(): Observable<Task[]> {
-    return of(this.tasks);
+    return of([...this.tasks]);
   }
 
   addTask(task: Task): Observable<Task> {
