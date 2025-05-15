@@ -1,1 +1,12 @@
-<p>delete works!</p>
+<mat-card class="delete-dialog">
+    <button mat-icon-button class="close-btn" (click)="onCancel()" aria-label="Close">
+        <mat-icon>close</mat-icon>
+    </button>
+    <mat-card-content>
+        <p class="description">Are you sure you want to delete this {{ itemName }}?</p>
+    </mat-card-content>
+    <mat-card-actions align="end" class="action-buttons">
+        <button mat-stroked-button color="warn" (click)="onConfirm()">Delete</button>
+        <button mat-button (click)="onCancel()">Cancel</button>
+    </mat-card-actions>
+</mat-card>

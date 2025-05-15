@@ -11,6 +11,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   exports: [
@@ -25,7 +26,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatNativeDateModule,
     DragDropModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
   ]
 })
 export class MaterialModule { }

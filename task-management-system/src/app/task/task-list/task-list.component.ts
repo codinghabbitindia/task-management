@@ -1,11 +1,15 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Actions, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { Task } from 'src/app/shared/models/task';
 import { TASK_PRIORITIES, TASK_STATUS } from 'src/app/shared/utils/constants';
-import { loadTasks, updateTask } from 'src/app/store/actions/task.actions';
+import { addTaskSuccess, deleteTask, deleteTaskSuccess, loadTasks, updateTask } from 'src/app/store/actions/task.actions';
 import { selectAllTasks } from 'src/app/store/selectors/task.selectors';
 
 @Component({
@@ -38,12 +42,24 @@ export class TaskListComponent implements OnInit {
   completedTasks: Task[] = [];
   filteredTasks: Task[] = [];
 
-  constructor(private store: Store, private router: Router) { }
+  constructor(
+    private store: Store,
+    private router: Router,
+    private dialog: MatDialog,
+    private actions: Actions,
+    private snackBar: MatSnackBar,
+  ) { }
 
   ngOnInit() {
     this.store.dispatch(loadTasks());
     this.tasks.subscribe(tasks => {
       this.filterAndGroupTasks(tasks);
+    });
+
+    this.actions.pipe(
+      ofType(deleteTaskSuccess)
+    ).subscribe(() => {
+      this.snackBar.open('Task deleted successfully!', 'Close', { duration: 2000 });
     });
   }
 
@@ -89,7 +105,19 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-    // Implement delete logic (dispatch deleteTask action)
-    console.log('Delete Task:', task);
+    const dialogRef = this.dialog.open(DeleteComponent, {
+      width: '450px',
+      height: '300px',
+      data: { itemName: task.taskName }
+    });
+
+    dialogRef.componentInstance.confirm.subscribe(() => {
+      this.store.dispatch(deleteTask({ id: task.id }));
+      dialogRef.close();
+    });
+
+    dialogRef.componentInstance.cancel.subscribe(() => {
+      dialogRef.close();
+    });
   }
 }

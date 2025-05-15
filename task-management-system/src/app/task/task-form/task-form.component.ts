@@ -30,7 +30,7 @@ export class TaskFormComponent implements OnInit {
     private store: Store,
     private snackBar: MatSnackBar,
     private router: Router,
-    private actions: Actions
+    private actions: Actions,
   ) { }
 
   ngOnInit(): void {
@@ -108,5 +108,9 @@ export class TaskFormComponent implements OnInit {
     } else {
       this.taskForm.markAllAsTouched();
     }
+  }
+
+  onCancel() {
+    this.router.navigate(['/tasks']);
   }
 }
