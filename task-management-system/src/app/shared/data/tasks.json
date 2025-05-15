@@ -1,0 +1,47 @@
+[
+    {
+      "id": "1",
+      "taskName": "Design Homepage",
+      "description": "Create a responsive homepage design",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "John Doe",
+      "dueDate": "2025-05-20"
+    },
+    {
+      "id": "2",
+      "taskName": "Fix Login Bug",
+      "description": "Resolve the issue with user login",
+      "priority": "High",
+      "status": "Pending",
+      "assignedTo": "Jane Smith",
+      "dueDate": "2025-05-15"
+    },
+    {
+      "id": "3",
+      "taskName": "Write Documentation",
+      "description": "Document the API endpoints",
+      "priority": "Medium",
+      "status": "Completed",
+      "assignedTo": "Alice Johnson",
+      "dueDate": "2025-05-10"
+    },
+    {
+      "id": "4",
+      "taskName": "Setup CI/CD",
+      "description": "Implement CI/CD pipeline for the project",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedTo": "Bob Brown",
+      "dueDate": "2025-05-25"
+    },
+    {
+      "id": "5",
+      "taskName": "Code Review",
+      "description": "Review the latest pull requests",
+      "priority": "Low",
+      "status": "Pending",
+      "assignedTo": "Charlie Green",
+      "dueDate": "2025-05-18"
+    }
+]

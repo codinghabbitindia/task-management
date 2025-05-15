@@ -1,0 +1,72 @@
+<div class="filters">
+    <mat-form-field appearance="outline" style="flex: 1 1 200px;">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search by Task name or description" [(ngModel)]="searchText"
+            (ngModelChange)="applyFilters()" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 180px;">
+        <mat-label>Priority</mat-label>
+        <mat-select [(ngModel)]="selectedPriority" (selectionChange)="applyFilters()">
+            <mat-option value="">All</mat-option>
+            <mat-option *ngFor="let p of priorities" [value]="p">{{p.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 180px;">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="selectedStatus" (selectionChange)="applyFilters()">
+            <mat-option value="">All</mat-option>
+            <mat-option *ngFor="let s of statuses" [value]="s">{{s.label}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 200px;">
+        <mat-label>Assigned User</mat-label>
+        <mat-select [(ngModel)]="selectedUser" (selectionChange)="applyFilters()">
+            <mat-option value="">All</mat-option>
+            <mat-option *ngFor="let u of users" [value]="u">{{u}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<!-- <app-table [dataSource]="filteredTasks" [displayedColumns]="displayedColumns" [columnHeaders]="columnHeaders"
+    [showActions]="true" [actions]="actionConfig" (onEdit)="editTask($event)" (onView)="viewTask($event)"
+    (onDelete)="deleteTask($event)">
+</app-table> -->
+
+<div class="task-board">
+    <div class="task-status-column">
+        <h2 class="status pending">Pending</h2>
+        <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="pendingTasks"
+            [cdkDropListConnectedTo]="[inProgressList, completedList]" class="task-list"
+            (cdkDropListDropped)="onTaskDrop($event, 'Pending')">
+            <app-table [dataSource]="pendingTasks" [displayedColumns]="displayedColumns" [columnHeaders]="columnHeaders"
+                [showActions]="true" [actions]="actionConfig" (onEdit)="editTask($event)" (onView)="viewTask($event)"
+                (onDelete)="deleteTask($event)">
+            </app-table>
+        </div>
+    </div>
+    <div class="task-status-column">
+        <h2 class="status inProgress">In Progress</h2>
+        <div cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inProgressTasks"
+            [cdkDropListConnectedTo]="[pendingList, completedList]" class="task-list"
+            (cdkDropListDropped)="onTaskDrop($event, 'In Progress')">
+            <app-table [dataSource]="inProgressTasks" [displayedColumns]="displayedColumns"
+                [columnHeaders]="columnHeaders" [showActions]="true" [actions]="actionConfig"
+                (onEdit)="editTask($event)" (onView)="viewTask($event)" (onDelete)="deleteTask($event)">
+            </app-table>
+        </div>
+    </div>
+    <div class="task-status-column">
+        <h2 class="status completed">Completed</h2>
+        <div cdkDropList #completedList="cdkDropList" [cdkDropListData]="completedTasks"
+            [cdkDropListConnectedTo]="[pendingList, inProgressList]" class="task-list"
+            (cdkDropListDropped)="onTaskDrop($event, 'Completed')">
+            <app-table [dataSource]="completedTasks" [displayedColumns]="displayedColumns"
+                [columnHeaders]="columnHeaders" [showActions]="true" [actions]="actionConfig"
+                (onEdit)="editTask($event)" (onView)="viewTask($event)" (onDelete)="deleteTask($event)">
+            </app-table>
+        </div>
+    </div>
+</div>

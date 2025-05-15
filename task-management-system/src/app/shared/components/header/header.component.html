@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="header">
+    <span>Task Management System</span>
+    <span class="spacer"></span>
+    <button mat-button [attr.aria-label]="item.ariaLabel" *ngFor="let item of navItems" class="btn" (click)="navigateTo(item.route, '123')">
+        <mat-icon>{{item.icon}}</mat-icon>
+        {{item.label}}
+    </button>
+</mat-toolbar>

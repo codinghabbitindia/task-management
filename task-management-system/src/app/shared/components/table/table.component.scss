@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: block;
+}
+
+th,
+td {
+    padding: 8px 12px;
+    text-align: left;
+    word-break: break-word;
+    white-space: nowrap;
+}
+
+tr.cdk-drag {
+    cursor: grab;
+}
+
+tr.cdk-drag:active {
+    cursor: grabbing;
+}
+
+th.mat-mdc-header-cell {
+    background: #96c4f1;
+    font-size: 16px;
+    border-bottom: 2px solid #1565c0;
+}
