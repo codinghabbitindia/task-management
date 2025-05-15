@@ -5,7 +5,7 @@
       "description": "Create a responsive homepage design",
       "priority": "High",
       "status": "In Progress",
-      "assignedTo": "John Doe",
+      "assignedTo": "Harshit Kumar",
       "dueDate": "2025-05-20"
     },
     {
@@ -14,7 +14,7 @@
       "description": "Resolve the issue with user login",
       "priority": "High",
       "status": "Pending",
-      "assignedTo": "Jane Smith",
+      "assignedTo": "Saahil Kumar",
       "dueDate": "2025-05-15"
     },
     {
@@ -23,7 +23,7 @@
       "description": "Document the API endpoints",
       "priority": "Medium",
       "status": "Completed",
-      "assignedTo": "Alice Johnson",
+      "assignedTo": "Harshit Kumar",
       "dueDate": "2025-05-10"
     },
     {
@@ -32,7 +32,7 @@
       "description": "Implement CI/CD pipeline for the project",
       "priority": "High",
       "status": "In Progress",
-      "assignedTo": "Bob Brown",
+      "assignedTo": "Swati",
       "dueDate": "2025-05-25"
     },
     {
@@ -41,7 +41,7 @@
       "description": "Review the latest pull requests",
       "priority": "Low",
       "status": "Pending",
-      "assignedTo": "Charlie Green",
+      "assignedTo": "Shubham",
       "dueDate": "2025-05-18"
     }
 ]
